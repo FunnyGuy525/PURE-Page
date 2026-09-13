@@ -1,0 +1,14 @@
+.DS_Store
+._*
+__pycache__/
+*.pyc
+.venv/
+venv/
+_extract/
+paper.txt
+*.log
+.idea/
+.vscode/
+
+# original paper source (kept locally, published copy lives in static/pdfs/)
+3767308.3836296.pdf

@@ -1,520 +1,393 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <!-- Primary Meta Tags -->
-  <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="PAPER_TITLE - AUTHOR_NAMES">
-  <!-- TODO: Write a compelling 150-160 character description of your research -->
-  <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Add 5-10 relevant keywords for your research area -->
-  <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI">
-  <!-- TODO: List all authors -->
-  <meta name="author" content="FIRST_AUTHOR_NAME, SECOND_AUTHOR_NAME">
-  <meta name="robots" content="index, follow">
-  <meta name="language" content="English">
-  
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="article">
-  <!-- TODO: Replace with your institution or lab name -->
-  <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
-  <!-- TODO: Same as paper title above -->
-  <meta property="og:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Replace with your actual website URL -->
-  <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE">
-  <!-- TODO: Create a 1200x630px preview image and update path -->
-  <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="PAPER_TITLE - Research Preview">
-  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
-  <meta property="article:author" content="FIRST_AUTHOR_NAME">
-  <meta property="article:section" content="Research">
-  <meta property="article:tag" content="KEYWORD1">
-  <meta property="article:tag" content="KEYWORD2">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PURE: Refining Feed-forward 3D Reconstruction with Unlabeled Post-training</title>
+<meta name="description" content="PURE is an annotation-free post-training framework that refines feed-forward 3D reconstruction models (VGGT, Pi3, DepthAnything3) on unlabeled in-the-wild dynamic videos. ACM MM 2026.">
+<meta name="keywords" content="3D reconstruction, feed-forward, post-training, unsupervised, video depth, camera pose, VGGT, Pi3, DepthAnything3, ACM MM 2026">
+<meta name="author" content="Yaolong Zhu et al.">
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <!-- TODO: Replace with your lab/institution Twitter handle -->
-  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
-  <!-- TODO: Replace with first author's Twitter handle -->
-  <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
-  <!-- TODO: Same as paper title above -->
-  <meta name="twitter:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Same as social preview image above -->
-  <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview">
+<meta property="og:title" content="PURE: Refining Feed-forward 3D Reconstruction with Unlabeled Post-training">
+<meta property="og:description" content="Annotation-free post-training that unlocks feed-forward 3D reconstruction in the wild. ACM MM 2026.">
+<meta property="og:image" content="static/images/teaser.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="static/images/teaser.jpg">
 
-  <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="PAPER_TITLE">
-  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
-  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
-  <meta name="citation_publication_date" content="2024">
-  <meta name="citation_conference_title" content="CONFERENCE_NAME">
-  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
-  
-  <!-- Additional SEO -->
-  <meta name="theme-color" content="#2563eb">
-  <meta name="msapplication-TileColor" content="#2563eb">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  
-  <!-- Preconnect for performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://ajax.googleapis.com">
-  <link rel="preconnect" href="https://documentcloud.adobe.com">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
-
-
-  <!-- TODO: Replace with your paper title and authors -->
-  <title>PAPER_TITLE - AUTHOR_NAMES | Academic Research</title>
-  
-  <!-- Favicon and App Icons -->
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link rel="apple-touch-icon" href="static/images/favicon.ico">
-  
-  <!-- Critical CSS - Load synchronously -->
-  <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/index.css">
-  
-  <!-- Non-critical CSS - Load asynchronously -->
-  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  
-  <!-- Fallback for browsers that don't support preload -->
-  <noscript>
-    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  </noscript>
-  
-  <!-- Fonts - Optimized loading -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Defer non-critical JavaScript -->
-  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-  <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script defer src="static/js/bulma-carousel.min.js"></script>
-  <script defer src="static/js/bulma-slider.min.js"></script>
-  <script defer src="static/js/index.js"></script>
-  
-  <!-- Structured Data for Academic Papers -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ScholarlyArticle",
-    "headline": "PAPER_TITLE",
-    "description": "BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS",
-    "author": [
-      {
-        "@type": "Person",
-        "name": "FIRST_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      },
-      {
-        "@type": "Person",
-        "name": "SECOND_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      }
-    ],
-    "datePublished": "2024-01-01",
-    "publisher": {
-      "@type": "Organization",
-      "name": "CONFERENCE_OR_JOURNAL_NAME"
-    },
-    "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
-    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
-    "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
-    "abstract": "FULL_ABSTRACT_TEXT_HERE",
-    "citation": "BIBTEX_CITATION_HERE",
-    "isAccessibleForFree": true,
-    "license": "https://creativecommons.org/licenses/by/4.0/",
-    "mainEntity": {
-      "@type": "WebPage",
-      "@id": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"
-    },
-    "about": [
-      {
-        "@type": "Thing",
-        "name": "RESEARCH_AREA_1"
-      },
-      {
-        "@type": "Thing", 
-        "name": "RESEARCH_AREA_2"
-      }
-    ]
-  }
-  </script>
-  
-  <!-- Website/Organization Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "INSTITUTION_OR_LAB_NAME",
-    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
-    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
-    "sameAs": [
-      "https://twitter.com/YOUR_TWITTER_HANDLE",
-      "https://github.com/YOUR_GITHUB_USERNAME"
-    ]
-  }
-  </script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧊</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
 
-
-  <!-- Scroll to Top Button -->
-  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
-    <i class="fas fa-chevron-up"></i>
-  </button>
-
-  <!-- More Works Dropdown -->
-  <div class="more-works-container">
-    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
-      <i class="fas fa-flask"></i>
-      More Works
-      <i class="fas fa-chevron-down dropdown-arrow"></i>
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="#top"><span class="logo">PURE</span><span class="nav-venue">ACM MM 2026</span></a>
+    <nav class="nav-links">
+      <a href="#abstract">Abstract</a>
+      <a href="#motivation">Motivation</a>
+      <a href="#method">Method</a>
+      <a href="#results">Results</a>
+      <a href="#gallery">Gallery</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <svg viewBox="0 0 24 24" width="22" height="22"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
     </button>
-    <div class="more-works-dropdown" id="moreWorksDropdown">
-      <div class="dropdown-header">
-        <h4>More Works from Our Lab</h4>
-        <button class="close-btn" onclick="toggleMoreWorks()">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="works-list">
-        <!-- TODO: Replace with your lab's related works -->
-        <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
-          <div class="work-info">
-            <!-- TODO: Replace with actual paper title -->
-            <h5>Paper Title 1</h5>
-            <!-- TODO: Replace with brief description -->
-            <p>Brief description of the work and its main contribution.</p>
-            <!-- TODO: Replace with venue and year -->
-            <span class="work-venue">Conference/Journal 2024</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <!-- TODO: Add more related works or remove extra items -->
-        <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 2</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 3</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    </div>
   </div>
+</header>
 
-  <main id="main-content">
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <!-- TODO: Replace with your paper title -->
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
-            <div class="is-size-5 publication-authors">
-              <!-- TODO: Replace with your paper authors and their personal links -->
-              <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
-                  </span>
-                  </div>
+<main id="top">
 
-                  <div class="is-size-5 publication-authors">
-                    <!-- TODO: Replace with your institution and conference/journal info -->
-                    <span class="author-block">Institution Name<br>Conference name and year</span>
-                    <!-- TODO: Remove this line if no equal contribution -->
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                  </div>
-
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- TODO: Update with your arXiv paper ID -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
-
-                    <!-- TODO: Add your supplementary material PDF or remove this section -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
-                  <!-- TODO: Replace with your GitHub repository URL -->
-                  <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
-                <!-- TODO: Update with your arXiv paper ID -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <!-- TODO: Replace with your teaser video -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-      </video>
-      <!-- TODO: Replace with your video description -->
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
-  </div>
-</section>
-<!-- End teaser video -->
-
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <!-- TODO: Replace with your paper abstract -->
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End paper abstract -->
-
-
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="Fourth research result visualization" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
-
-
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- TODO: Replace with your YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End youtube video -->
-
-
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
-
-
-
-
-
-
-<!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <!-- TODO: Replace with your poster PDF -->
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
-    </div>
-  </section>
-<!--End paper poster -->
-
-
-
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <div class="bibtex-header">
-        <h2 class="title">BibTeX</h2>
-        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
-          <i class="fas fa-copy"></i>
-          <span class="copy-text">Copy</span>
-        </button>
-      </div>
-      <pre id="bibtex-code"><code>@article{YourPaperKey2024,
-  title={Your Paper Title Here},
-  author={First Author and Second Author and Third Author},
-  journal={Conference/Journal Name},
-  year={2024},
-  url={https://your-domain.com/your-project-page}
-}</code></pre>
-    </div>
-</section>
-<!--End BibTex citation -->
-
-
-  <footer class="footer">
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
   <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
+    <div class="badge">ACM Multimedia 2026 &nbsp;·&nbsp; Rio de Janeiro, Brazil</div>
+    <h1 class="title">
+      <span class="title-accent">PURE</span>: Refining Feed-forward 3D Reconstruction<br class="d-md">
+      with Unlabeled Post-training
+    </h1>
+    <p class="subtitle">An annotation-free post-training paradigm that unlocks feed-forward 3D reconstruction on in-the-wild dynamic videos.</p>
 
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
+    <div class="authors">
+      <span class="author"><a href="mailto:yaolongzhu25@stu.pku.edu.cn">Yaolong Zhu</a><sup>1</sup></span>
+      <span class="author">Peng Li<sup>2</sup><span class="lead-mark">▲</span></span>
+      <span class="author">Jiahao Lu<sup>2</sup><span class="lead-mark">▲</span></span>
+      <span class="author">Chengfeng Zhao<sup>2</sup></span>
+      <span class="author">Mengfei Li<sup>2</sup></span>
+      <span class="author">Chao Wang<sup>3</sup></span>
+      <span class="author">Wenyue Chen<sup>1</sup></span>
+      <span class="author">Zekai Gu<sup>2</sup></span>
+      <span class="author">Chengwei Ren<sup>2</sup></span>
+      <span class="author">Ronggang Wang<sup>1</sup><span class="corr">✉</span></span>
+      <span class="author">Yuan Liu<sup>2</sup><span class="corr">✉</span></span>
+    </div>
 
-        </div>
+    <div class="affiliations">
+      <div><sup>1</sup> Guangdong Provincial Key Laboratory of Ultra High Definition Immersive Media Technology, Shenzhen Graduate School, Peking University</div>
+      <div><sup>2</sup> The Hong Kong University of Science and Technology &nbsp;&nbsp; <sup>3</sup> Pengcheng Laboratory</div>
+      <div class="corr-note"><span class="lead-mark">▲</span> Project lead &nbsp;&nbsp;·&nbsp;&nbsp; <span class="corr">✉</span> Corresponding authors</div>
+    </div>
+
+    <div class="buttons">
+      <a class="btn btn-dark" href="static/pdfs/PURE_MM26.pdf" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" class="ic"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        Paper
+      </a>
+      <a class="btn btn-dark" href="https://doi.org/10.1145/3767308.3836296" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" class="ic"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        ACM DL
+      </a>
+      <a class="btn btn-dark btn-disabled" href="#" aria-disabled="true" title="Coming soon">
+        <svg viewBox="0 0 24 24" class="ic"><path d="M8 17l-5-5 5-5M16 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Code <span class="soon">soon</span>
+      </a>
+      <a class="btn btn-dark btn-disabled" href="#" aria-disabled="true" title="Coming soon">
+        <svg viewBox="0 0 24 24" class="ic"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg>
+        Video <span class="soon">soon</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="container container-wide">
+    <figure class="figure zoomable">
+      <img src="static/images/teaser.jpg" alt="PURE teaser: pre-train vs post-train reconstruction quality" loading="eager">
+      <figcaption><b>Our annotation-free post-training significantly improves feed-forward 3D reconstruction in dynamic scenes</b>, yielding more accurate and temporally consistent geometry compared to the original pre-trained models.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ ABSTRACT ============ -->
+<section class="section" id="abstract">
+  <div class="container container-narrow">
+    <h2 class="section-title">Abstract</h2>
+    <p class="abstract">
+      Feed-forward 3D reconstruction models have achieved remarkable progress through large-scale training and strong learned priors.
+      However, they remain fragile when applied to dynamic in-the-wild videos, where non-rigid motion, occlusions, and illumination changes are prevalent.
+      A key limitation lies in their reliance on expensive depth and camera pose annotations, which hinders scaling to diverse real-world dynamic data and restricts generalization.
+      To address this issue, we propose <b>PURE</b>, an unlabeled post-training refinement framework that improves depth and camera estimation without requiring ground-truth supervision.
+      Instead of relying on annotations, PURE elegantly distills robust structural knowledge from state-of-the-art 2D priors into 4D feed-forward architectures.
+      PURE leverages <b>relative depth constraints</b>, <b>affine-invariant geometry distillation</b>, and <b>pose refinement based on feature correspondences</b> to stabilize geometric predictions under challenging dynamic conditions.
+      Extensive experiments on both synthetic and real-world dynamic benchmarks demonstrate that PURE delivers consistent improvements across multiple state-of-the-art architectures.
+      Furthermore, our data-efficient paradigm effectively mitigates domain shifts, successfully unlocking the architectural limits of these base models in challenging, in-the-wild dynamic scenes.
+    </p>
+  </div>
+</section>
+
+<!-- ============ HIGHLIGHTS ============ -->
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="section-title">Contributions</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-ic">01</div>
+        <h3>A Novel Post-Training Paradigm</h3>
+        <p>PURE is a unified, <b>model-agnostic</b> post-training framework that adapts pre-trained feed-forward 3D reconstruction models to in-the-wild videos using <b>purely unlabeled data</b> — no ground-truth annotations and no test-time optimization.</p>
+      </div>
+      <div class="card">
+        <div class="card-ic">02</div>
+        <h3>Robust Geometry Distillation</h3>
+        <p>A noise-tolerant distillation strategy based on <b>relative depth ordering</b> and <b>local affine-invariant</b> constraints. The base model absorbs rich structural priors from 2D teachers while actively filtering out their absolute scale and shift errors.</p>
+      </div>
+      <div class="card">
+        <div class="card-ic">03</div>
+        <h3>Dynamic-Aware Pose Refinement</h3>
+        <p>A correspondence-based camera pose refinement mechanism with rigorous filtering and sampling, ensuring reliable multi-view consistency even in scenes dominated by <b>non-rigid dynamic motion</b>.</p>
       </div>
     </div>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-num">0</div><div class="stat-lbl">GT depth / pose labels</div></div>
+      <div class="stat"><div class="stat-num">3</div><div class="stat-lbl">backbones refined<br><span class="muted">VGGT · Pi3 · DA3</span></div></div>
+      <div class="stat"><div class="stat-num">~5M</div><div class="stat-lbl">unlabeled frames used</div></div>
+      <div class="stat"><div class="stat-num">1×</div><div class="stat-lbl">inference cost<br><span class="muted">unchanged vs. base</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MOTIVATION ============ -->
+<section class="section" id="motivation">
+  <div class="container container-wide">
+    <h2 class="section-title">Motivation</h2>
+    <p class="lead container-narrow">
+      Monocular estimators (e.g., MoGe) provide <b>accurate frame-wise relative geometry</b>, while feed-forward 3D models ensure <b>temporal scale consistency</b>.
+      PURE unifies both worlds by transferring monocular geometric cues into a video model while preserving its temporal consistency —
+      avoiding the "layering" artifacts caused by naively supervising with absolute monocular depth.
+    </p>
+    <figure class="figure zoomable">
+      <img src="static/images/motivation.jpg" alt="Comparison of frame-wise geometry from MoGe and feed-forward models" loading="lazy">
+      <figcaption><b>Figure 2.</b> MoGe provides accurate frame-wise relative geometry, while feed-forward 3D models ensure temporal scale consistency. We unify both by transferring monocular geometric cues while preserving temporal consistency.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ METHOD ============ -->
+<section class="section section-alt" id="method">
+  <div class="container container-wide">
+    <h2 class="section-title">Method</h2>
+    <p class="lead container-narrow">
+      Given an unlabeled image sequence, a pre-trained feed-forward model predicts depth and camera poses.
+      PURE refines these predictions through two complementary branches: <b>(1)</b> local geometry refinement using relative depth and
+      affine-invariant constraints with intrinsic distillation, and <b>(2)</b> pose refinement using robust correspondence-based
+      constraints from GIM matches that enforce cross-frame geometric consistency.
+    </p>
+    <figure class="figure zoomable">
+      <img src="static/images/pipeline.jpg" alt="PURE framework overview" loading="lazy">
+      <figcaption><b>Figure 3.</b> Overview of PURE, our annotation-free post-training framework.</figcaption>
+    </figure>
+
+    <div class="method-grid container-narrow">
+      <div class="mbox">
+        <div class="mtag mtag-red">Loss</div>
+        <h3>Ordinal Depth Constraint</h3>
+        <p>Instead of regressing absolute depth, we enforce the <b>relative order</b> of depth values between sampled pixel pairs, making optimization robust to absolute scale fluctuations of the teacher:</p>
+        <div class="eq">
+          <span class="eq-l">𝓛<sub>order</sub> =</span>
+          <span class="eq-sum">Σ<sub>(u₁,u₂)∈𝒫</sub></span>
+          <span class="eq-b">‖ tanh( α ( D<sub>t</sub>(u₁) − D<sub>t</sub>(u₂) ) ) − R( D̂<sub>t</sub>(u₁), D̂<sub>t</sub>(u₂) ) ‖<sub>1</sub></span>
+        </div>
+        <p class="note">R(·,·) is an indicator returning {+1, −1} from the teacher's depth ranking; α is a scaling factor.</p>
+      </div>
+
+      <div class="mbox">
+        <div class="mtag mtag-red">Loss</div>
+        <h3>Local Affine-Invariant Constraint</h3>
+        <p>To capture high-frequency surface details, geometric consistency is enforced within <b>local spherical regions</b> rather than globally, solving for an optimal per-region scale <b>s</b> and shift <b>t</b>:</p>
+        <div class="eq">
+          <span class="eq-l">𝓛<sub>local</sub> =</span>
+          <span class="eq-sum">Σ<sub>j</sub> min<sub>s,t</sub> Σ<sub>i∈N(p<sub>j</sub>)</sub></span>
+          <span class="eq-b">‖ P<sub>pseudo,i</sub> − ( s · P<sub>i</sub> + t ) ‖<sub>1</sub></span>
+        </div>
+        <p class="note">Preserves local curvature and fine-grained surface detail even under global scale drift.</p>
+      </div>
+
+      <div class="mbox">
+        <div class="mtag mtag-blue">Design</div>
+        <h3>Intrinsic Parameter Distillation</h3>
+        <p>Pre-trained models produce relatively <b>stable ray directions</b> even when depth is inaccurate. We therefore decouple ray geometry from depth magnitude and synthesize pseudo 3D points:</p>
+        <div class="eq eq-center">
+          <span>r<sub>pretrain</sub> = K<sub>pre</sub><sup>−1</sup> p &nbsp;&nbsp;&nbsp;&nbsp; P<sub>pseudo</sub> = d<sub>mono</sub> · r<sub>pretrain</sub></span>
+        </div>
+        <p class="note">These points implicitly regularize intrinsics estimation without explicit labels.</p>
+      </div>
+
+      <div class="mbox">
+        <div class="mtag mtag-green">Design</div>
+        <h3>Correspondence-based Pose Refinement</h3>
+        <p>We use GIM for robust matching and apply a rigorous filtering pipeline so that matched 2D pixels really correspond to the same 3D point:</p>
+        <ul class="ticks">
+          <li><b>Dynamic &amp; confidence filtering</b> — discard matches in dynamic regions or below threshold τ.</li>
+          <li><b>Cycle consistency check</b> — enforce forward–backward consistency (p<sub>A</sub>→p<sub>B</sub>→p<sub>A</sub>′).</li>
+          <li><b>Inverse density sampling</b> — avoid bias from texture-rich clusters, yielding spatially uniform constraints.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub-title container-narrow">Post-Training Data</h3>
+    <p class="lead container-narrow">Large-scale <b>unlabeled real videos</b> drive the refinement; a small amount of annotated synthetic data prevents catastrophic forgetting. Pseudo supervision comes from off-the-shelf foundation models: <b>MoGe</b> (monocular depth), <b>Grounded-SAM2</b> (dynamic/sky masks) and <b>GIM-RoMa</b> (dense correspondences).</p>
+    <div class="table-wrap container-narrow">
+      <table class="tbl">
+        <thead><tr><th>Dataset</th><th>#Scene</th><th>Avg. #Img</th><th>Total #Img</th><th>Type</th></tr></thead>
+        <tbody>
+          <tr><td>SpatialVID-HQ</td><td>1.8k</td><td>~490</td><td>882k</td><td><span class="pill pill-green">Real (Unlabeled)</span></td></tr>
+          <tr><td>Sekai-Real-Walking-HQ</td><td>4k</td><td>900</td><td>3.6M</td><td><span class="pill pill-green">Real (Unlabeled)</span></td></tr>
+          <tr><td>OmniWorld</td><td>121</td><td>~4k</td><td>484k</td><td><span class="pill">Synthetic</span></td></tr>
+          <tr><td>VKITTI</td><td>100</td><td>425</td><td>42k</td><td><span class="pill">Synthetic</span></td></tr>
+          <tr><td>BEDLAM</td><td>30</td><td>250</td><td>7.5k</td><td><span class="pill">Synthetic</span></td></tr>
+          <tr><td>PointOdyssey</td><td>131</td><td>1.8k</td><td>240k</td><td><span class="pill">Synthetic</span></td></tr>
+          <tr><td>Waymo</td><td>1k</td><td>200</td><td>200k</td><td><span class="pill pill-blue">Real</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note container-narrow">Training runs on 4× H800 GPUs with AdamW (lr 1e-5, OneCycleLR). PURE takes ~20 h for VGGT (12K iters) and ~8 h for DA3 (5K iters). Inference cost stays identical to the base models.</p>
+  </div>
+</section>
+
+<!-- ============ RESULTS ============ -->
+<section class="section" id="results">
+  <div class="container container-wide">
+    <h2 class="section-title">Results</h2>
+
+    <h3 class="sub-title">Video Depth Estimation</h3>
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-target="tab-scale" role="tab">Scale alignment</button>
+      <button class="tab" data-target="tab-scaleshift" role="tab">Scale &amp; shift alignment</button>
+    </div>
+
+    <div class="table-wrap tabpanel active" id="tab-scale">
+      <table class="tbl tbl-res">
+        <thead>
+          <tr><th rowspan="2">Method</th><th rowspan="2">Params</th><th colspan="2">Sintel</th><th colspan="2">Bonn</th><th colspan="2">KITTI</th><th colspan="2">DyCheck</th></tr>
+          <tr><th>AbsRel ↓</th><th>δ&lt;1.25 ↑</th><th>AbsRel ↓</th><th>δ&lt;1.25 ↑</th><th>AbsRel ↓</th><th>δ&lt;1.25 ↑</th><th>AbsRel ↓</th><th>δ&lt;1.25 ↑</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>VGGT</td><td>1.16B</td><td>0.279</td><td>0.657</td><td>0.058</td><td>0.969</td><td>0.062</td><td>0.971</td><td>0.134</td><td>0.827</td></tr>
+          <tr class="ours"><td>Ours (VGGT)</td><td>1.16B</td><td><b>0.220</b></td><td><b>0.724</b></td><td><b>0.045</b></td><td><b>0.975</b></td><td><b>0.040</b></td><td><b>0.984</b></td><td><b>0.062</b></td><td><b>0.956</b></td></tr>
+          <tr><td>Pi3</td><td>959M</td><td>0.230</td><td>0.674</td><td>0.049</td><td>0.975</td><td><b>0.038</b></td><td>0.986</td><td><b>0.048</b></td><td>0.980</td></tr>
+          <tr class="ours"><td>Ours (Pi3)</td><td>989M</td><td><b>0.212</b></td><td><b>0.733</b></td><td><b>0.043</b></td><td><b>0.977</b></td><td>0.039</td><td><b>0.987</b></td><td>0.049</td><td><b>0.981</b></td></tr>
+          <tr><td>DA3</td><td>1.21B</td><td>0.236</td><td>0.702</td><td>0.047</td><td>0.974</td><td>0.058</td><td>0.975</td><td>0.053</td><td>0.959</td></tr>
+          <tr class="ours"><td>Ours (DA3)</td><td>1.21B</td><td><b>0.224</b></td><td><b>0.710</b></td><td><b>0.045</b></td><td><b>0.975</b></td><td><b>0.048</b></td><td><b>0.978</b></td><td><b>0.040</b></td><td><b>0.982</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-wrap tabpanel" id="tab-scaleshift">
+      <table class="tbl tbl-res">
+        <thead>
+          <tr><th rowspan="2">Method</th><th rowspan="2">Params</th><th colspan="2">Sintel</th><th colspan="2">Bonn</th><th colspan="2">KITTI</th><th colspan="2">DyCheck</th></tr>
+          <tr><th>AbsRel ↓</th><th>δ&lt;1.25 ↑</th><th>AbsRel ↓</th><th>δ&lt;1.25 ↑</th><th>AbsRel ↓</th><th>δ&lt;1.25 ↑</th><th>AbsRel ↓</th><th>δ&lt;1.25 ↑</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>VGGT</td><td>1.16B</td><td>0.215</td><td>0.704</td><td>0.050</td><td>0.971</td><td>0.053</td><td>0.969</td><td>0.113</td><td>0.852</td></tr>
+          <tr class="ours"><td>Ours (VGGT)</td><td>1.16B</td><td><b>0.178</b></td><td><b>0.741</b></td><td><b>0.043</b></td><td><b>0.976</b></td><td><b>0.038</b></td><td><b>0.984</b></td><td><b>0.055</b></td><td><b>0.976</b></td></tr>
+          <tr><td>Pi3</td><td>959M</td><td>0.210</td><td>0.726</td><td>0.044</td><td>0.975</td><td><b>0.037</b></td><td>0.986</td><td>0.042</td><td>0.979</td></tr>
+          <tr class="ours"><td>Ours (Pi3)</td><td>989M</td><td><b>0.195</b></td><td><b>0.750</b></td><td><b>0.038</b></td><td><b>0.977</b></td><td>0.038</td><td><b>0.987</b></td><td><b>0.040</b></td><td><b>0.980</b></td></tr>
+          <tr><td>DA3</td><td>1.21B</td><td>0.173</td><td>0.730</td><td>0.046</td><td>0.974</td><td>0.053</td><td>0.974</td><td>0.044</td><td>0.974</td></tr>
+          <tr class="ours"><td>Ours (DA3)</td><td>1.21B</td><td><b>0.156</b></td><td><b>0.743</b></td><td><b>0.043</b></td><td><b>0.976</b></td><td><b>0.045</b></td><td><b>0.978</b></td><td><b>0.036</b></td><td><b>0.983</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Post-training consistently improves accuracy across <b>all backbones</b> and <b>nearly all datasets</b>. The largest gains appear on highly dynamic DyCheck (VGGT: 0.134 → 0.062 AbsRel).</p>
+
+    <h3 class="sub-title">Camera Pose Estimation</h3>
+    <div class="table-wrap">
+      <table class="tbl tbl-res">
+        <thead>
+          <tr><th rowspan="2">Method</th><th colspan="3">Sintel</th><th colspan="3">Bonn</th><th colspan="3">DyCheck</th></tr>
+          <tr><th>ATE ↓</th><th>RPE<sub>trans</sub> ↓</th><th>RPE<sub>rot</sub> ↓</th><th>ATE ↓</th><th>RPE<sub>trans</sub> ↓</th><th>RPE<sub>rot</sub> ↓</th><th>ATE ↓</th><th>RPE<sub>trans</sub> ↓</th><th>RPE<sub>rot</sub> ↓</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>VGGT</td><td>0.148</td><td>0.044</td><td>0.455</td><td>0.015</td><td>0.010</td><td>0.633</td><td>0.022</td><td>0.007</td><td>0.672</td></tr>
+          <tr class="ours"><td>Ours (VGGT)</td><td><b>0.061</b></td><td><b>0.039</b></td><td><b>0.300</b></td><td><b>0.010</b></td><td>0.010</td><td><b>0.630</b></td><td><b>0.015</b></td><td><b>0.005</b></td><td><b>0.614</b></td></tr>
+          <tr><td>Pi3</td><td>0.060</td><td>0.069</td><td><b>0.654</b></td><td>0.013</td><td>0.010</td><td>0.632</td><td>0.011</td><td>0.004</td><td><b>0.613</b></td></tr>
+          <tr class="ours"><td>Ours (Pi3)</td><td><b>0.058</b></td><td><b>0.066</b></td><td>0.668</td><td>0.013</td><td>0.010</td><td><b>0.630</b></td><td><b>0.010</b></td><td>0.004</td><td>0.615</td></tr>
+          <tr><td>DA3</td><td>0.078</td><td>0.046</td><td>0.336</td><td><b>0.008</b></td><td><b>0.008</b></td><td><b>0.626</b></td><td>0.007</td><td>0.003</td><td>0.619</td></tr>
+          <tr class="ours"><td>Ours (DA3)</td><td><b>0.052</b></td><td><b>0.030</b></td><td><b>0.205</b></td><td>0.009</td><td>0.009</td><td>0.628</td><td><b>0.006</b></td><td>0.003</td><td><b>0.610</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">All trajectories are aligned to ground truth with a Sim(3) transformation before computing errors.</p>
+
+    <div class="two-col">
+      <div>
+        <h3 class="sub-title">Ablation (DyCheck, VGGT)</h3>
+        <div class="table-wrap">
+          <table class="tbl tbl-res">
+            <thead>
+              <tr><th rowspan="2">Method</th><th colspan="2">Depth</th><th colspan="3">Camera Pose</th></tr>
+              <tr><th>AbsRel ↓</th><th>δ&lt;1.25 ↑</th><th>ATE ↓</th><th>Trans ↓</th><th>Rot ↓</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Base Model</td><td>0.113</td><td>0.852</td><td>0.022</td><td>0.007</td><td>0.672</td></tr>
+              <tr><td>w/o all (labeled only)</td><td>0.084</td><td>0.892</td><td>0.019</td><td>0.006</td><td>0.656</td></tr>
+              <tr><td>w/o 𝓛<sub>order</sub></td><td>0.062</td><td>0.957</td><td>0.018</td><td>0.005</td><td>0.635</td></tr>
+              <tr><td>w/o 𝓛<sub>local</sub></td><td>0.075</td><td>0.935</td><td>0.016</td><td>0.005</td><td>0.640</td></tr>
+              <tr class="ours"><td>Ours (Full)</td><td><b>0.055</b></td><td><b>0.976</b></td><td><b>0.015</b></td><td><b>0.005</b></td><td><b>0.614</b></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">Both large-scale unlabeled data and the proposed geometric losses are essential and complementary.</p>
+
+        <h3 class="sub-title">Post-Training on Test-Set Data (VGGT)</h3>
+        <div class="table-wrap">
+          <table class="tbl tbl-res">
+            <thead>
+              <tr><th rowspan="2">Dataset</th><th colspan="2">Depth (AbsRel ↓)</th><th colspan="2">Camera Pose (ATE ↓)</th></tr>
+              <tr><th>Before</th><th>After</th><th>Before</th><th>After</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Sintel</td><td>0.157</td><td><b>0.147</b></td><td>0.048</td><td><b>0.037</b></td></tr>
+              <tr><td>Bonn</td><td>0.052</td><td><b>0.041</b></td><td>0.015</td><td><b>0.012</b></td></tr>
+              <tr><td>KITTI</td><td>0.054</td><td><b>0.049</b></td><td>–</td><td>–</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">Effective even with limited data, though gains scale substantially with data diversity and volume.</p>
+      </div>
+
+      <div>
+        <h3 class="sub-title">Scaling Behavior</h3>
+        <figure class="figure zoomable figure-plain">
+          <img src="static/images/scaling.jpg" alt="Scaling behavior with increasing post-training data" loading="lazy">
+          <figcaption><b>Figure 5.</b> Relative AbsRel (base = 1.0) averaged over Sintel, Bonn, KITTI and DyCheck. Performance improves significantly as more unlabeled data is introduced (0.845 → 0.746), then gradually saturates at larger scales (0.723) due to the fixed model capacity.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="section section-alt" id="gallery">
+  <div class="container container-wide">
+    <h2 class="section-title">Qualitative Comparison</h2>
+    <p class="lead container-narrow">Row <b>(a)</b> shows reconstructions from the original models; row <b>(b)</b> shows reconstructions after post-training with PURE — exhibiting improved geometric consistency and reconstruction quality, particularly in dynamic regions.</p>
+    <figure class="figure zoomable">
+      <img src="static/images/qualitative.jpg" alt="Qualitative comparison before and after PURE post-training" loading="lazy">
+      <figcaption><b>Figure 4.</b> Qualitative comparison results across VGGT, Pi3 and DepthAnything3.</figcaption>
+    </figure>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container container-narrow">
+    <p>
+      &copy; 2026 The Authors. This work is licensed under a
+      <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">Creative Commons Attribution 4.0 International License</a>.
+    </p>
+    <p class="muted">Website design inspired by academic project pages such as <a href="https://nerfies.github.io/" target="_blank" rel="noopener">Nerfies</a>. Feel free to reuse the source code.</p>
   </div>
 </footer>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+<div class="lightbox" id="lightbox" role="dialog" aria-hidden="true">
+  <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+  <img id="lbImg" src="" alt="">
+</div>
 
-    <!-- End of Statcounter Code -->
-
-  </body>
-  </html>
+<script src="static/js/main.js"></script>
+</body>
+</html>
