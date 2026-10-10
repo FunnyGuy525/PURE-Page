@@ -91,7 +91,7 @@ sup{font-size:.65em;font-weight:600;color:var(--accent)}
 
 /* ---------- FIGURES ---------- */
 .figure{margin:0 0 8px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow)}
-.figure img{border-radius:8px;margin:0 auto;cursor:zoom-in}
+.figure img{width:100%;height:auto;border-radius:8px;margin:0 auto;cursor:zoom-in}
 .figure figcaption{margin-top:14px;color:var(--muted);font-size:14.5px;line-height:1.6;text-align:left;padding:0 6px}
 .figure-plain{box-shadow:none}
 
