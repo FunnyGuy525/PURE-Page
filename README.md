@@ -2,40 +2,25 @@
 
 Project page for **PURE: Refining Feed-forward 3D Reconstruction with Unlabeled Post-training** (ACM MM 2026).
 
-🔗 **Live site:** https://funnyguy525.github.io/PURE-Page/
+Live site: https://funnyguy525.github.io/PURE-Page/
 
-## Structure
+The homepage places authors and affiliations first, followed by a 2,000-frame Camera Head 128/1 long reconstruction, a 56-second method-and-results film and six short scenes across PURE (Pi3), PURE (DA3) and PURE (VGGT). Small RGB input windows follow video playback and seeking. The long film ends with a full-cloud overhead reveal; camera poses are not drawn.
 
-```
-.
-├── index.html                 # the whole page (no build step, no framework)
-├── .nojekyll                  # serve files as-is on GitHub Pages
-└── static/
-    ├── css/style.css
-    ├── js/main.js             # nav, result tabs, image lightbox
-    ├── images/                # teaser / motivation / pipeline / qualitative / scaling
-    └── pdfs/PURE_MM26.pdf
-```
+The method film introduces unlabeled video post-training for more accurate dynamic-scene reconstruction, with depth ordering, local geometry and static correspondence objectives.
 
-## Local preview
+## Files
 
-```bash
-python3 -m http.server 8321
-# open http://localhost:8321
-```
+- `index.html`, `style.css`, `app.js`: current buildless showcase.
+- `assets/`: compressed demo videos, synchronized RGB companions, figures and media provenance.
+- `paper.html`: retained detailed research page, quantitative results and original figures.
+- `static/`: original research figures, scripts, styles and PDF.
 
-## Deploy
+## Preview and deployment
 
-GitHub Pages: **Settings → Pages → Source: Deploy from a branch → Branch: `master` / folder: `/ (root)`**.
+Serve the repository root with any static server. Video chapter seeking requires HTTP byte-range support. GitHub Pages publishes `master` at `/`; `.nojekyll` serves the site without a build step.
 
-## TODO before wide release
-
-- Replace the two disabled buttons (`Code`, `Video`) with real links — search for `btn-disabled` in `index.html`.
-- Add the arXiv link once available.
-- Add result videos under `static/videos/` and embed with
-  `<video src="static/videos/xxx.mp4" autoplay loop muted playsinline></video>`.
-- Add a BibTeX section once the official ACM DL citation is available.
+All input attribution is in `assets/media-provenance.json`. Geometry is not changed by viewing-camera smoothing; some seams and dynamic ghosting remain.
 
 ## License
 
-Content © 2026 the authors, released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+Research page content © 2026 the authors, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Input video rights remain with their respective creators.
