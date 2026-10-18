@@ -4,7 +4,7 @@ Project page for **PURE: Refining Feed-forward 3D Reconstruction with Unlabeled 
 
 Live site: https://funnyguy525.github.io/PURE-Page/
 
-The homepage places authors and affiliations first, followed by a 2,000-frame Camera Head 128/1 long reconstruction, a 56-second method-and-results film and six short scenes across PURE (Pi3), PURE (DA3) and PURE (VGGT). Small RGB input windows follow video playback and seeking. The long film ends with a full-cloud overhead reveal; camera poses are not drawn.
+The homepage places authors and affiliations first, followed by the full 1:54 English promotional film: all 2,000 Camera Head 128/1 reconstruction frames at 30 fps, the complete overhead view, five short scenes, then the method explanation. The film contains synchronized RGB insets; raw clip players retain their own synchronized RGB windows. Drift is excluded from the film and gallery. Camera poses are not drawn.
 
 The method film introduces unlabeled video post-training for more accurate dynamic-scene reconstruction, with depth ordering, local geometry and static correspondence objectives.
 
