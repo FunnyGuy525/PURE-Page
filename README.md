@@ -8,6 +8,10 @@ The homepage places authors and affiliations first, followed by the full 1:54 En
 
 The method film introduces unlabeled video post-training for more accurate dynamic-scene reconstruction, with depth ordering, local geometry and static correspondence objectives.
 
+## Online Studio
+
+[PURE Reconstruction Studio](https://huggingface.co/spaces/cyun9286/PURE-Studio) runs on ZeroGPU with three video examples and a ten-image sequence. The homepage links to the live app from the paper resources, Studio section and final call to action.
+
 ## Files
 
 - `index.html`, `style.css`, `app.js`: current buildless showcase.
